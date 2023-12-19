@@ -1,5 +1,5 @@
 import time
-
+import logging
 def to_do_logic(
     param_json: dict = None,
     ex_model_param: dict = None,
@@ -9,18 +9,18 @@ def to_do_logic(
     is_training: bool = False,
     training_model_path: str = None,
 ) :
-    print("##################################################")
-    print(f"param_json => {param_json}")    
-    print(f"ex_model_param => {ex_model_param}")    
-    print(f"in_dir => {in_dir}")    
-    print(f"out_dir => {out_dir}")    
-    print(f"ex_out_dir => {ex_out_dir}")    
-    print(f"is_training => {is_training}")    
-    print(f"training_model_path => {training_model_path}")    
-    print("##################################################")
+    logging.info("##################################################")
+    logging.info(f"param_json => {param_json}")    
+    logging.info(f"ex_model_param => {ex_model_param}")    
+    logging.info(f"in_dir => {in_dir}")    
+    logging.info(f"out_dir => {out_dir}")    
+    logging.info(f"ex_out_dir => {ex_out_dir}")    
+    logging.info(f"is_training => {is_training}")    
+    logging.info(f"training_model_path => {training_model_path}")    
+    logging.info("##################################################")
     
     for i in range(600):
-        print(f"Step {i}")
+        logging.info(f"Step {i}")
         time.sleep(1)
     accuracy_json = {'a' : 100}
     loss_json = {'b' : 80}
@@ -29,7 +29,7 @@ def to_do_logic(
     return accuracy_json, loss_json, output_params, files
 
 if __name__ == "__main__":
-    print("model starts running")
+    logging.info("model starts running")
     for i in range(1000):
-        print(f"Step {i}")
+        logging.info(f"Step {i}")
         time.sleep(1)
