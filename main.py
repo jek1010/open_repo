@@ -8,7 +8,7 @@ def to_do_logic(
     ex_out_dir: str = None,
     is_training: bool = False,
     training_model_path: str = None,
-) -> Any:
+) :
     print("##################################################")
     print(f"param_json => {param_json}")    
     print(f"ex_model_param => {ex_model_param}")    
