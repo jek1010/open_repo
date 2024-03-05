@@ -20,7 +20,7 @@ def to_do_logic(
     logging.info(f"training_model_path => {training_model_path}")    
     logging.info("##################################################")
     
-    for i in range(300):
+    for i in range(60):
         logging.info(f"Step {i}")
         time.sleep(1)
     accuracy_json = {'a' : 100}
