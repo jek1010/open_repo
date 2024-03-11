@@ -20,10 +20,10 @@ def to_do_logic(
     logging.info(f"training_model_path => {training_model_path}")    
     logging.info("##################################################")
     
-    # for i in range(60):
-    #     logging.info(f"Step {i}")
-    #     time.sleep(1)
-    b = 10 / 0
+    for i in range(60):
+        logging.info(f"Step {i}")
+        time.sleep(1)
+
     accuracy_json = {'a' : 100}
     loss_json = {'b' : 80}
     output_params = {'p1' : 'x', 'p2' : 'y', 'p3' : 10}
