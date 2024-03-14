@@ -32,7 +32,7 @@ def to_do_logic(
             value = value + "_tail"
         param_json[key] = value
         
-    param_json['now'] = datetime.now()
+    param_json['now'] = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
     accuracy_json = {}
     loss_json = {}
     output_params = param_json
