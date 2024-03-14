@@ -1,5 +1,6 @@
 import time
 import logging
+from datetime import datetime 
 
 def to_do_logic(
     param_json: dict = None,
@@ -20,18 +21,27 @@ def to_do_logic(
     logging.info(f"training_model_path => {training_model_path}")    
     logging.info("##################################################")
     
-    for i in range(60):
-        logging.info(f"Step {i}")
-        time.sleep(1)
-
-    accuracy_json = {'a' : 100}
-    loss_json = {'b' : 80}
-    output_params = {'p1' : 'x', 'p2' : 'y', 'p3' : 10}
+    # for i in range(60):
+    #     logging.info(f"Step {i}")
+    #     time.sleep(1)
+    for key in param_json:
+        value = param_json[key]
+        if isinstance(value, int):
+            value = value * 3
+        elif isinstance(value, str):
+            value = value + "_tail"
+        param_json[key] = value
+        
+    param_json['now'] = datetime.now()
+    accuracy_json = {}
+    loss_json = {}
+    output_params = param_json
     files = []
     return accuracy_json, loss_json, output_params, files
 
 if __name__ == "__main__":
-    logging.info("model starts running")
-    for i in range(300):
-        logging.info(f"Step {i}")
-        time.sleep(1)
+    print("model starts running")
+    t1 , t2, output, t3 = to_do_logic(
+        param_json = {'a' : 10, 'b': 'wow'}
+    )
+    print(output)
