@@ -11,6 +11,19 @@ def to_do_logic(
     is_training: bool = False,
     training_model_path: str = None,
 ) :
+
+    accuracy_json: dict = {}
+    loss_json: dict = {}
+    output_params: dict = {}
+    files: list = list()
+
+    # 로고 파일 생성
+    logging.basicConfig(filename=f'{out_dir}{os.sep}log_file.txt', level=logging.DEBUG,
+                    format="[ %(asctime)s | %(levelname)s ] %(message)s", force=True,
+                    datefmt="%Y-%m-%d %H:%M:%S")
+    files.append("log_file.txt")
+    logger = logging.getLogger()
+
     logging.info("##################################################")
     logging.info(f"param_json => {param_json}")    
     logging.info(f"ex_model_param => {ex_model_param}")    
@@ -21,9 +34,7 @@ def to_do_logic(
     logging.info(f"training_model_path => {training_model_path}")    
     logging.info("##################################################")
     
-    # for i in range(60):
-    #     logging.info(f"Step {i}")
-    #     time.sleep(1)
+    a = pd.DataFrame()
     for key in param_json:
         value = param_json[key]
         if isinstance(value, int):
@@ -33,10 +44,6 @@ def to_do_logic(
         param_json[key] = value
         
     param_json['now'] = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
-    accuracy_json = {}
-    loss_json = {}
-    output_params = param_json
-    files = []
     return accuracy_json, loss_json, output_params, files
 
 if __name__ == "__main__":
