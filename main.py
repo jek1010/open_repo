@@ -34,7 +34,7 @@ def to_do_logic(
     logging.info(f"training_model_path => {training_model_path}")    
     logging.info("##################################################")
     
-    a = pd.DataFrame()
+  
     for key in param_json:
         value = param_json[key]
         if isinstance(value, int):
